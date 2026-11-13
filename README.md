@@ -22,7 +22,7 @@ Esta primeira versão não possui conta, autenticação, sincronização em nuve
 
 Faça backups frequentes pelo botão **Exportar backup**. Limpar os dados do navegador pode apagar os registros. O backup JSON contém dados financeiros em texto legível; guarde-o em local protegido.
 
-Ainda não há integração bancária, leitura automática de extratos, controle de faturas/parcelas, recorrência, metas ou criptografia local. Valores são tratados como números JavaScript nesta versão inicial; não utilizar como sistema contábil ou para decisões de investimento.
+A aplicação agora criptografa os lançamentos localmente com AES-GCM (256 bits), usando uma chave derivada da senha por PBKDF2-SHA-256 (310.000 iterações). A senha não é armazenada. O bloqueio automático ocorre após 10 minutos sem atividade. Backups exportados também são criptografados e exigem a senha para importação. Se já existiam lançamentos em uma versão anterior, a primeira criação de senha migra esses dados para o formato criptografado. **A senha esquecida não pode ser recuperada**; mantenha-a em local seguro.\n\nAinda não há integração bancária, leitura automática de extratos, controle de faturas/parcelas, recorrência ou metas. Valores são tratados como números JavaScript nesta versão inicial; não utilizar como sistema contábil ou para decisões de investimento.
 
 ## Desenvolvimento
 Abra `index.html` diretamente no navegador ou publique pelo GitHub Pages. Não há dependências externas nem etapa de build.
@@ -33,4 +33,4 @@ Abra `index.html` diretamente no navegador ou publique pelo GitHub Pages. Não h
 3. Cartões de crédito e faturas.
 4. Metas e projeções financeiras.
 5. Relatórios e exportação CSV/Excel.
-6. Opção de criptografia local e autenticação/sincronização apenas se houver infraestrutura apropriada.
+6. Evoluções futuras: autenticação/sincronização apenas com infraestrutura apropriada.
